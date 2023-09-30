@@ -419,6 +419,8 @@ func doRequest(req *http.Request, destination interface{}) (string, int, error) 
 		return res.Status, res.StatusCode, err
 	}
 
+	fmt.Println(string(bytes))
+
 	if err := json.Unmarshal(bytes, &destination); err != nil {
 		return res.Status, res.StatusCode, err
 	} 
