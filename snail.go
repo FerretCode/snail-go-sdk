@@ -419,7 +419,13 @@ func doRequest(req *http.Request, destination interface{}) (string, int, error) 
 		return res.Status, res.StatusCode, err
 	}
 
-	fmt.Println(req.URL.RawPath)
+	stringified, err := json.MarshalIndent(req, "", "  ")
+
+	if err != nil {
+		return res.Status, res.StatusCode, err
+	}
+
+	fmt.Println(string(stringified))
 	fmt.Println(string(bytes))
 
 	if err := json.Unmarshal(bytes, &destination); err != nil {
