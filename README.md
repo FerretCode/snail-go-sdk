@@ -16,7 +16,8 @@ func main() {
 
 # Verifying Payments
 
-To use this endpoint, acquire an order verification code from your user and call this function
+To use this endpoint, acquire an order verification code from your user and call
+this function
 
 ```go
   payment, err := s.VerifyPayment("user code")
@@ -117,7 +118,7 @@ p  ayments, err := s.ListPayments()
 # Create a Payout
 
 ```javascript
-  err := s.NewPayout(5.41)
+  err := s.NewPayout(5.42)
 
 	if err != nil {
 		log.Fatal(err)
