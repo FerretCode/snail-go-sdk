@@ -43,7 +43,7 @@ func (s *Snail) VerifyPayment(code string) (Payment, error) {
 	req, err := http.NewRequest(
 		"GET",
 		fmt.Sprintf(
-			"https://snailpay.app/verify-payment?code=%s",
+			"https://snailpay.app/api/verify-payment?code=%s",
 			code,
 		),
 		nil,
@@ -90,7 +90,7 @@ func (s *Snail) CreatePaymentLink(params *PaymentLinkParams) (PaymentLink, error
 
 	req, err := http.NewRequest(
 		"POST",
-		"https://snailpay.app/payment-link",
+		"https://snailpay.app/api/payment-link",
 		bytes.NewBuffer(stringified),
 	)
 
@@ -135,7 +135,7 @@ func (s *Snail) SubscriptionLink(params *SubscriptionLink) (SubscriptionLink, er
 
 	req, err := http.NewRequest(
 		"POST",
-		"https://snailpay.app/subscription-link",
+		"https://snailpay.app/api/subscription-link",
 		bytes.NewBuffer(stringified),
 	)
 
@@ -173,7 +173,7 @@ type ListPayment struct {
 func (s *Snail) ListPayments() ([]ListPayment, error) {
 	req, err := http.NewRequest(
 		"GET",
-		"https://snailpay.app/payment-list",
+		"https://snailpay.app/api/payment-list",
 		nil,
 	)
 
@@ -211,7 +211,7 @@ type ListSubscription struct {
 func (s *Snail) ListSubscriptions() ([]ListSubscription, error) {
 	req, err := http.NewRequest(
 		"GET",
-		"https://snailpay.app/subscription-list",
+		"https://snailpay.app/api/subscription-list",
 		nil,
 	)
 
@@ -240,7 +240,7 @@ func (s *Snail) ListSubscriptions() ([]ListSubscription, error) {
 func (s *Snail) ListPaymentLinks() ([]string, error) {
 	req, err := http.NewRequest(
 		"GET",
-		"https://snailpay.app/payment-link-list",
+		"https://snailpay.app/api/payment-link-list",
 		nil,
 	)
 
@@ -269,7 +269,7 @@ func (s *Snail) ListPaymentLinks() ([]string, error) {
 func (s *Snail) ListSubscriptionLinks() ([]string, error) {
 	req, err := http.NewRequest(
 		"GET",
-		"https://snailpay.app/subscription-link-list",
+		"https://snailpay.app/api/subscription-link-list",
 		nil,
 	)
 
@@ -312,7 +312,7 @@ type Payout struct {
 func (s *Snail) ListPayouts() (Payouts, error) {
 	req, err := http.NewRequest(
 		"GET",
-		"https://snailpay.app/payout",
+		"https://snailpay.app/api/payout",
 		nil,
 	)
 
@@ -341,7 +341,7 @@ func (s *Snail) ListPayouts() (Payouts, error) {
 func (s *Snail) NewPayout(amount float64) error {
 	req, err := http.NewRequest(
 		"POST",
-		"https://snailpay.app/new-payout",
+		"https://snailpay.app/api/new-payout",
 		nil,
 	)
 
@@ -382,7 +382,7 @@ func (s *Snail) RefundPayments(paymentIds []string) error {
 
 	req, err := http.NewRequest(
 		"POST",
-		"https://snailpay.app/refund-payment",
+		"https://snailpay.app/api/refund-payment",
 		bytes.NewBuffer(stringified),
 	)
 
