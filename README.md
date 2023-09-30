@@ -1,6 +1,6 @@
 # snail-go-sdk
 
-A Golang wrapper for the [Snail](https://snailpay.app) API
+A Golang wrapper for the [Snailpay](https://snailpay.app) API
 
 # Authenticating
 
