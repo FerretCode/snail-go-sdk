@@ -53,7 +53,7 @@ func (s *Snail) VerifyPayment(code string) (Payment, error) {
 		return Payment{}, err 
 	}
 
-	req.Header.Add("Authorization", s.ApiKey)
+	req.Header.Add("X-API-Key", s.ApiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	payment := Payment{}
@@ -98,7 +98,7 @@ func (s *Snail) CreatePaymentLink(params *PaymentLinkParams) (PaymentLink, error
 		return PaymentLink{}, err 
 	}
 
-	req.Header.Add("Authorization", s.ApiKey)
+	req.Header.Add("X-API-Key", s.ApiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	paymentLink := PaymentLink{}
@@ -143,7 +143,7 @@ func (s *Snail) SubscriptionLink(params *SubscriptionLink) (SubscriptionLink, er
 		return SubscriptionLink{}, err 
 	}
 
-	req.Header.Add("Authorization", s.ApiKey)
+	req.Header.Add("X-API-Key", s.ApiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	subscriptionLink := SubscriptionLink{}
@@ -181,7 +181,7 @@ func (s *Snail) ListPayments() ([]ListPayment, error) {
 		return []ListPayment{}, err
 	}
 
-	req.Header.Add("Authorization", s.ApiKey)
+	req.Header.Add("X-API-Key", s.ApiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	var listPayments []ListPayment
@@ -219,7 +219,7 @@ func (s *Snail) ListSubscriptions() ([]ListSubscription, error) {
 		return []ListSubscription{}, err
 	}
 
-	req.Header.Add("Authorization", s.ApiKey)
+	req.Header.Add("X-API-Key", s.ApiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	var listSubscriptions []ListSubscription
@@ -248,7 +248,7 @@ func (s *Snail) ListPaymentLinks() ([]string, error) {
 		return []string{}, err
 	}
 
-	req.Header.Add("Authorization", s.ApiKey)
+	req.Header.Add("X-API-Key", s.ApiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	var links []string
@@ -277,7 +277,7 @@ func (s *Snail) ListSubscriptionLinks() ([]string, error) {
 		return []string{}, err
 	}
 
-	req.Header.Add("Authorization", s.ApiKey)
+	req.Header.Add("X-API-Key", s.ApiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	var links []string
@@ -320,7 +320,7 @@ func (s *Snail) ListPayouts() (Payouts, error) {
 		return Payouts{}, err
 	}
 
-	req.Header.Add("Authorization", s.ApiKey)
+	req.Header.Add("X-API-Key", s.ApiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	payouts := Payouts{}
@@ -349,7 +349,7 @@ func (s *Snail) NewPayout(amount float64) error {
 		return err
 	}
 
-	req.Header.Add("Authorization", s.ApiKey)
+	req.Header.Add("X-API-Key", s.ApiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	res, err := http.DefaultClient.Do(req)
@@ -390,7 +390,7 @@ func (s *Snail) RefundPayments(paymentIds []string) error {
 		return err
 	}
 
-	req.Header.Add("Authorization", s.ApiKey)
+	req.Header.Add("X-API-Key", s.ApiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	res, err := http.DefaultClient.Do(req)
